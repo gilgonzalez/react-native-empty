@@ -10,12 +10,12 @@ const menuItems : MenuItem[] = [
   {
     name: 'Animation 101',
     icon: 'cube-outline',
-    component: 'Animation101Screen',
+    component: 'Animation101',
   },
   {
     name: 'Animation 102',
     icon: 'albums-outline',
-    component: 'Animation101Screen',
+    component: 'Animation102',
   },
 ];
 
@@ -27,7 +27,7 @@ const HomeScreen = () => {
       <FlatList
         ListHeaderComponent={()=> <HeaderFlatList title="Opciones de menú"/>}
         data={menuItems}
-        renderItem={({ item }) => <FlatListItem menuItem={item} />}
+        renderItem={({ item }) => <FlatListItem menuItem={ item } />}
         keyExtractor={(item) => item.name}
         ItemSeparatorComponent={()=> <ListItemSeparator/>}
       />
