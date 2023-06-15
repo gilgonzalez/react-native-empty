@@ -8,4 +8,12 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 35,
   },
+  switchRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  objectText: {
+    fontSize: 20,
+  },
 });

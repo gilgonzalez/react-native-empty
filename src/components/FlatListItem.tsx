@@ -15,7 +15,7 @@ const FlatListItem = ({ menuItem }: { menuItem: MenuItem }) => {
       <View style={styles.container}>
         <Icon name={menuItem.icon} color={'#007700' } size={20} />
         <Text style={styles.text}>{menuItem.name}</Text>
-        <Icon style={styles.arrowIcon} name="chevron-forward-outline" size={20} />
+        <Icon style={styles.arrowIcon} name="chevron-forward-outline" size={20} color={'#007700' } />
       </View>
     </TouchableOpacity>
   );

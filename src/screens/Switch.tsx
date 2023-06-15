@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
 import { CustomSwitch } from '../components/CustomSwitch';
+import { styles } from '../theme/apptheme';
 
 export const SwitchScreen = () => {
   const navigate = useNavigation();
@@ -44,13 +45,3 @@ export const SwitchScreen = () => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  switchRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  objectText: {
-    fontSize: 20,
-  },
-});

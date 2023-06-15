@@ -17,4 +17,24 @@ export
       icon: 'toggle-outline',
       component: 'Switch',
     },
+    {
+      name: 'Alerts',
+      icon: 'alert-circle-outline',
+      component: 'Alert',
+    },
+    {
+      name: 'TextInput',
+      icon: 'document-text-outline',
+      component: 'TextInput',
+    },
+    {
+      name: 'PullToRefresh',
+      icon: 'refresh-outline',
+      component: 'PullToRefresh',
+    },
+    {
+      name: 'SectionList',
+      icon: 'list-outline',
+      component: 'SectionList',
+    },
   ];

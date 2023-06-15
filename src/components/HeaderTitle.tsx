@@ -8,7 +8,7 @@ const HeaderTitle = ({ title }: { title: string }) => {
 
   return (
     <View style={{marginTop: top + 10}}>
-        <Text style={ styles.title}>{title}</Text>
+        <Text style={ {...styles.title, color : '#007700'}}>{title}</Text>
       </View>
   );
 };
