@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { styles } from '../theme/apptheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const HeaderFlatList = ({ title }: { title: string }) => {
+const HeaderTitle = ({ title }: { title: string }) => {
   const { top} = useSafeAreaInsets();
 
   return (
@@ -13,4 +13,4 @@ const HeaderFlatList = ({ title }: { title: string }) => {
   );
 };
 
-export default HeaderFlatList;
+export default HeaderTitle;

@@ -1,42 +1,17 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useRef} from 'react';
-import { Animated, Button, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Animated, Button,  Pressable, StyleSheet, Text, View } from 'react-native';
+import useAnimation from '../hooks/useAnimation';
+import HeaderTitle from '../components/HeaderTitle';
 
 const Animation101 = () => {
   const navigate = useNavigation();
 
-  const opacity = useRef(new Animated.Value(0)).current;
-  const height = useRef(new Animated.Value(-100)).current;
+  const {fadeIn, fadeOut, position, opacity, startPosition } = useAnimation();
 
-  const fadeIn = () => {
-    Animated.timing(
-      opacity, {
-        toValue: 1,
-        duration: 1000,
-        useNativeDriver: true,
-      }
-    ).start();
-
-    Animated.timing(
-      height, {
-        toValue: 0,
-        duration: 1000,
-        useNativeDriver: true,
-        easing: Easing.bounce,
-      }
-    ).start();
-  };
-  const fadeOut = () => {
-    Animated.timing(
-      opacity, {
-        toValue: 0,
-        duration: 1000,
-        useNativeDriver: true,
-      }
-    ).start(()=> height.setValue(-100));
-  };
   return (
     <View style={styles.container}>
+      <HeaderTitle title= "Animation 101"/>
       <Text>
         Animation 101
       </Text>
@@ -44,14 +19,17 @@ const Animation101 = () => {
         ...styles.box,
         opacity,
         transform: [{
-          translateY : height,
+          translateY : position,
         }],
       }} />
       <View style={{flexDirection: 'row', gap: 20}}>
-        <Button title="Fade In" onPress={fadeIn} />
+        <Button title="Fade In" onPress={() => {
+          fadeIn();
+          startPosition();
+        }} />
         <Button title="Fade Out" onPress={fadeOut} />
       </View>
-      <Pressable onPress={()=> navigate.goBack()}>
+      <Pressable onPress={()=> navigate.navigate('Home' as never)}>
         <Text>I'm pressable!</Text>
       </Pressable>
     </View>

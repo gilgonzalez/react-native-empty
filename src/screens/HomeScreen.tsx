@@ -2,22 +2,10 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { styles } from '../theme/apptheme';
 import FlatListItem from '../components/FlatListItem';
-import HeaderFlatList from '../components/HeaderFlatList';
+import HeaderTitle from '../components/HeaderTitle';
 import ListItemSeparator from '../components/ListItemSeparator';
-import { MenuItem } from '../interfaces/Interfaces';
+import { menuItems } from '../data/MenuItems';
 
-const menuItems : MenuItem[] = [
-  {
-    name: 'Animation 101',
-    icon: 'cube-outline',
-    component: 'Animation101',
-  },
-  {
-    name: 'Animation 102',
-    icon: 'albums-outline',
-    component: 'Animation102',
-  },
-];
 
 const HomeScreen = () => {
 
@@ -25,7 +13,7 @@ const HomeScreen = () => {
   return (
     <View style={{ flex: 1, ...styles.globalMargin }}>
       <FlatList
-        ListHeaderComponent={()=> <HeaderFlatList title="Opciones de menú"/>}
+        ListHeaderComponent={()=> <HeaderTitle title="Opciones de menú"/>}
         data={menuItems}
         renderItem={({ item }) => <FlatListItem menuItem={ item } />}
         keyExtractor={(item) => item.name}
