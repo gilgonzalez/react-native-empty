@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const ListItemSeparator = () => {
+const ListItemSeparator = ({ borderWidth }: {borderWidth: number}) => {
   return (
     <View style={{
-      borderBottomWidth: 1,
+      borderBottomWidth: borderWidth,
       opacity: 0.4,
       marginVertical: 5,
     } } />

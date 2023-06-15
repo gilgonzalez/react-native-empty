@@ -7,7 +7,7 @@ const HeaderTitle = ({ title }: { title: string }) => {
   const { top} = useSafeAreaInsets();
 
   return (
-    <View style={{marginTop: top + 10}}>
+    <View style={{marginTop: top + 20}}>
         <Text style={ {...styles.title, color : '#007700'}}>{title}</Text>
       </View>
   );

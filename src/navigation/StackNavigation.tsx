@@ -8,6 +8,8 @@ import AlertScreen from '../screens/Alert';
 import TextInputScreen from '../screens/TextInputScreen';
 import PullToRefresh from '../screens/PullToRefresh';
 import SectionListScreen from '../screens/SectionListScreen';
+import { CustomModal } from '../screens/CustomModal';
+import InfinityScroll from '../screens/InfinityScroll';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +18,11 @@ const StackNavigation = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        cardStyle: {
+          backgroundColor : 'white',
+        },
       }}
+
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Animation101" component={Animation101} />
@@ -26,6 +32,8 @@ const StackNavigation = () => {
       <Stack.Screen name="TextInput" component={TextInputScreen} />
       <Stack.Screen name="PullToRefresh" component={PullToRefresh} />
       <Stack.Screen name="SectionList" component={SectionListScreen} />
+      <Stack.Screen name="Modal" component={CustomModal} />
+      <Stack.Screen name="InfinityScroll" component={InfinityScroll} />
     </Stack.Navigator>
   );
 };

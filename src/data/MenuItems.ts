@@ -37,4 +37,14 @@ export
       icon: 'list-outline',
       component: 'SectionList',
     },
+    {
+      name: 'Modal',
+      icon: 'copy-outline',
+      component: 'Modal',
+    },
+    {
+      name: 'InfiniteScroll',
+      icon: 'infinite-outline',
+      component: 'InfinityScroll',
+    },
   ];

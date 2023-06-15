@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Animated, Easing } from 'react-native';
 
-const useAnimation = () => {
+const useAnimation = (duration: number = 300) => {
 
 
   const opacity = useRef(new Animated.Value(0)).current;
@@ -11,7 +11,7 @@ const useAnimation = () => {
     Animated.timing(
       opacity, {
       toValue: 1,
-      duration: 1000,
+      duration,
       useNativeDriver: true,
     }
     ).start();
@@ -20,19 +20,19 @@ const useAnimation = () => {
     Animated.timing(
       opacity, {
       toValue: 0,
-      duration: 1000,
+      duration,
       useNativeDriver: true,
     }
     ).start(() => position.setValue(-100));
   };
 
-  const startPosition = (initPosition: number = -100, duration: number = 1000,) => {
+  const startPosition = (initPosition: number = -100, animationDuration: number = 1000,) => {
     position.setValue(initPosition);
 
     Animated.timing(
       position, {
       toValue: 0,
-      duration,
+      duration: animationDuration,
       easing: Easing.bounce,
       useNativeDriver: true,
     }
