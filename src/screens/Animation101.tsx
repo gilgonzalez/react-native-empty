@@ -1,24 +1,24 @@
-import React from 'react';
-import { Animated, Button, StyleSheet, Text, View } from 'react-native';
+import React, { useContext } from 'react';
+import { Animated, Button, StyleSheet, View } from 'react-native';
 import useAnimation from '../hooks/useAnimation';
 import HeaderTitle from '../components/HeaderTitle';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
 import ButtonExit from '../components/ButtonExit';
+import { ThemeContext } from '../context/Theme/ThemeContext';
 
 interface Props extends StackScreenProps<RootStackParams, StackScreens.ANIMATION_101> { }
 
 const Animation101 = ({ navigation, route } : Props) => {
 
   const { fadeIn, fadeOut, position, opacity, startPosition } = useAnimation(undefined, 1000);
+  const { theme: { aditionalColors} } = useContext(ThemeContext);
   const nombre = route.params?.nombre;
 
   return (
     <View style={styles.container}>
-      <HeaderTitle title= "Animation 101"/>
-      <Text>
-        Animation 101 { nombre?.toUpperCase() }
-      </Text>
+      <HeaderTitle title= {`Animation 101 ${nombre}`}/>
+
       <Animated.View style={{
         ...styles.box,
         opacity,
@@ -30,8 +30,10 @@ const Animation101 = ({ navigation, route } : Props) => {
         <Button title="Fade In" onPress={() => {
           fadeIn();
           startPosition();
-        }} />
-        <Button title="Fade Out" onPress={()=> fadeOut()} />
+        }}
+          color={aditionalColors.pressable}
+        />
+        <Button title="Fade Out" onPress={()=> fadeOut()}  color={aditionalColors.pressable}/>
       </View>
       <ButtonExit goHome={() => navigation.navigate(StackScreens.HOME, {})  } />
     </View>

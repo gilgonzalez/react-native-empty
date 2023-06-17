@@ -50,11 +50,11 @@ export const CustomModal = () => {
             <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: 10, color: aditionalColors.subtitle }}>
               Este es el texto contenido de un modal, puede tener el tamaño que se necesite, y el modal ira agrandandose
             </Text>
-            <Button title="Cerrar Modal" onPress={() => setIsVisible(false)}/>
+            <Button title="Cerrar Modal" onPress={() => setIsVisible(false)}  color={aditionalColors.pressable}/>
           </View>
         </View>
         </Modal>
-      <Button title="Mostrar Modal" onPress={() => setIsVisible(true)}/>
+      <Button title="Mostrar Modal" onPress={() => setIsVisible(true)}  color={aditionalColors.pressable}/>
 
       <ButtonExit goHome={() => navigate.navigate(StackScreens.HOME, {} )}/>
     </View>

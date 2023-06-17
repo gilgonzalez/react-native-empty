@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import HeaderTitle from '../components/HeaderTitle';
-import { Button, View } from 'react-native';
+import {  View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
 import { styles } from '../theme/apptheme';
@@ -13,14 +13,14 @@ interface Props extends StackScreenProps<RootStackParams, StackScreens.THEME> { 
 
 const Theme = ({ navigation }: Props) => {
 
-  const { setDarkTheme, setLightTheme, theme: { currentTheme, colors, aditionalColors } } = useContext(ThemeContext);
+  const { setDarkTheme, setLightTheme, theme: { currentTheme,  aditionalColors } } = useContext(ThemeContext);
   return (
     <View style={[styles.globalMargin, {justifyContent: 'center', alignItems: 'center', flex:1}]}>
       <HeaderTitle title={`Theme ${currentTheme.toUpperCase()}`} />
       <TouchableOpacity
         activeOpacity={0.8}
         style={{
-          backgroundColor: aditionalColors.icon,
+          backgroundColor: aditionalColors.pressable,
 
           width: 150,
           height: 50,

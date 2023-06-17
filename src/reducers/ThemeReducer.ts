@@ -38,7 +38,7 @@ export const lightTheme: ThemeState = {
   },
   aditionalColors: {
     button: '#3DA5FF',
-    pressable: '#B1AFFF',
+    pressable: '#3DA5FF',
     activeSwitch: '#007700',
     inactiveSwitch: '#B7C4CF',
     code: '#3DA5FF',
@@ -49,7 +49,7 @@ export const lightTheme: ThemeState = {
     backgroundCode: '#d4d4d4',
     inactiveButtonSwitch: '#121212',
     backgroundModal: '#F5F5F5',
-    backgroundSlide: '#3DA5FF',
+    backgroundSlide: '#3DddFF',
   },
 };
 export const darkTheme: ThemeState = {

@@ -32,7 +32,7 @@ export const enum StackScreens {
 
 export type RootStackParams = {
   [StackScreens.HOME] : { }
-  [StackScreens.ANIMATION_101] : { nombre : string }
+  [StackScreens.ANIMATION_101] : { nombre?: string }
   [StackScreens.ANIMATION_102] : { }
   [StackScreens.SWITCH]: {}
   [StackScreens.ALERT]: {}

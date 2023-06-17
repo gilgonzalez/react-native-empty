@@ -1,60 +1,61 @@
 import { MenuItem } from '../interfaces/Interfaces';
+import { StackScreens } from '../navigation/StackNavigation';
 
 export
   const menuItems: MenuItem[] = [
     {
       name: 'Animation 101',
       icon: 'cube-outline',
-      component: 'Animation101',
+      component: StackScreens.ANIMATION_101,
     },
     {
       name: 'Animation 102',
       icon: 'albums-outline',
-      component: 'Animation102',
+      component: StackScreens.ANIMATION_102,
     },
     {
       name: 'Switch',
       icon: 'toggle-outline',
-      component: 'Switch',
+      component: StackScreens.SWITCH,
     },
     {
       name: 'Alerts',
       icon: 'alert-circle-outline',
-      component: 'Alert',
+      component: StackScreens.ALERT,
     },
     {
       name: 'TextInput',
       icon: 'document-text-outline',
-      component: 'TextInput',
+      component: StackScreens.TEXT_INPUT,
     },
     {
       name: 'PullToRefresh',
       icon: 'refresh-outline',
-      component: 'PullToRefresh',
+      component: StackScreens.PULL_TO_REFRESH,
     },
     {
       name: 'SectionList',
       icon: 'list-outline',
-      component: 'SectionList',
+      component: StackScreens.SECTION_LIST,
     },
     {
       name: 'Modal',
       icon: 'copy-outline',
-      component: 'Modal',
+      component: StackScreens.MODAL,
     },
     {
       name: 'InfiniteScroll',
       icon: 'infinite-outline',
-      component: 'InfinityScroll',
+      component: StackScreens.INFINITY_SCROLL,
     },
     {
       name: 'Slides',
       icon: 'flower-outline',
-      component: 'Slides',
+      component: StackScreens.SLIDES,
     },
     {
       name: 'Theme',
       icon: 'flask-outline',
-      component: 'Theme',
+      component: StackScreens.THEME,
     },
   ];

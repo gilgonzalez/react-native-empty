@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import prompt from 'react-native-prompt-android';
 import { Alert, Button, View } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
@@ -6,10 +6,11 @@ import { styles } from '../theme/apptheme';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import ButtonExit from '../components/ButtonExit';
 import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
+import { ThemeContext } from '../context/Theme/ThemeContext';
 
 const AlertScreen = () => {
   const navigate = useNavigation<NavigationProp<RootStackParams>>();
-
+  const { theme: { aditionalColors} } = useContext(ThemeContext);
   const showAlert = () => {
     Alert.alert(
       'Titulo de la alerta',
@@ -52,9 +53,9 @@ const AlertScreen = () => {
   return (
     <View style={[styles.globalMargin, {flex: 1} ]}>
       <HeaderTitle title="Alertas" />
-      <Button title="Alerta 1" onPress={showAlert} />
+      <Button title="Alerta 1" onPress={showAlert} color={ aditionalColors.pressable} />
       <View style={{height: 10}}/>
-      <Button title="Prompt Alert" onPress={showPrompt} />
+      <Button title="Prompt Alert" onPress={showPrompt} color={ aditionalColors.pressable}/>
 
       <ButtonExit goHome={() => navigate.navigate(StackScreens.HOME, {})}/>
     </View>

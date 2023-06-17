@@ -1,6 +1,6 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useRef } from 'react';
-import { Animated, PanResponder, StyleSheet, Text, View } from 'react-native';
+import { Animated, PanResponder, StyleSheet, View } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
 import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
 import ButtonExit from '../components/ButtonExit';
@@ -35,9 +35,6 @@ const Animation102 = () => {
   return (
     <View style={styles.container}>
       <HeaderTitle title= "Animation 102"/>
-      <Text>
-        Animation 102
-      </Text>
       <Animated.View
         {...boxResponder.panHandlers}
         style={[box.getLayout(), styles.box]}

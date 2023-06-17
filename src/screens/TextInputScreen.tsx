@@ -17,7 +17,7 @@ const TextInputScreen = () => {
     phone: '',
     isSubscribed: false,
   });
-  const { theme : {aditionalColors}} = useContext(ThemeContext);
+  const { theme : {aditionalColors, dividerColor}} = useContext(ThemeContext);
   return (
 
     <KeyboardAvoidingView
@@ -28,26 +28,29 @@ const TextInputScreen = () => {
         <View style={[globalStyles.globalMargin,{ flex: 1 }]}>
           <HeaderTitle title="Text Input" />
           <TextInput
-            style={styles.input}
+            style={[styles.input, {borderColor: dividerColor, color: aditionalColors.subtitle}]}
             placeholder="Aquí va el nombre"
             autoCorrect={false}
             autoCapitalize="words"
             onChangeText={(value) => onChange(value, 'name')}
+            placeholderTextColor={aditionalColors.subtitle}
           />
           <TextInput
-            style={styles.input}
+            style={[styles.input, {borderColor: dividerColor, color: aditionalColors.subtitle}]}
             placeholder="Aquí va el email"
             autoCapitalize="none"
             onChangeText={(value) => onChange(value, 'email')}
             keyboardType="email-address"
+            placeholderTextColor={aditionalColors.subtitle}
           />
           <Text style={ [globalStyles.code,{color: aditionalColors.code, backgroundColor: aditionalColors.backgroundCode}]}> {JSON.stringify(form, null, 3)} </Text>
 
           <TextInput
-            style={styles.input}
+            style={[styles.input, {borderColor: dividerColor, color: aditionalColors.subtitle}]}
             placeholder="Aquí va el telefono"
             onChangeText={(value) => onChange(value, 'phone')}
             keyboardType="phone-pad"
+            placeholderTextColor={aditionalColors.subtitle}
           />
           <View style={globalStyles.switchRow}>
             <Text style={[globalStyles.text,{color: aditionalColors.subtitle}]}>Suscribete! </Text>
@@ -70,7 +73,6 @@ const styles = StyleSheet.create({
     height: 50,
     paddingHorizontal: 10,
     borderRadius: 10,
-    borderColor: 'rgba(0,0,0,0.3)',
     marginVertical: 10,
 
   },

@@ -5,6 +5,7 @@ import { MenuItem } from '../interfaces/Interfaces';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { ThemeContext } from '../context/Theme/ThemeContext';
+import { StackScreens } from '../navigation/StackNavigation';
 
 
 
@@ -14,7 +15,9 @@ const FlatListItem = ({ menuItem }: { menuItem: MenuItem }) => {
   const { theme: { aditionalColors} } = useContext(ThemeContext);
 
   return (
-    <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate(menuItem.component as never)}>
+    <TouchableOpacity activeOpacity={0.8}
+      onPress={() => navigation.navigate(menuItem.component , { nombre: menuItem.component === StackScreens.ANIMATION_101 ? 'Propiedad' : undefined } )}
+    >
       <View style={styles.container}>
         <Icon name={menuItem.icon} color={ aditionalColors.icon} size={20} />
         <Text style={[styles.text, { color: aditionalColors.subtitle }]}>{menuItem.name}</Text>
