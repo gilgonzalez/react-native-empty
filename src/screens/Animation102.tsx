@@ -1,11 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React, { useRef } from 'react';
-import { Animated, PanResponder, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, PanResponder, StyleSheet, Text, View } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
+import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
+import ButtonExit from '../components/ButtonExit';
 
 const Animation102 = () => {
 
-  const navigate = useNavigation();
+  const navigate = useNavigation<NavigationProp<RootStackParams>>();
 
   const box = useRef(new Animated.ValueXY()).current;
 
@@ -32,7 +34,7 @@ const Animation102 = () => {
 
   return (
     <View style={styles.container}>
-       <HeaderTitle title= "Animation 102"/>
+      <HeaderTitle title= "Animation 102"/>
       <Text>
         Animation 102
       </Text>
@@ -40,9 +42,7 @@ const Animation102 = () => {
         {...boxResponder.panHandlers}
         style={[box.getLayout(), styles.box]}
       />
-      <Pressable onPress={()=> navigate.goBack()}>
-        <Text>I'm pressable!</Text>
-      </Pressable>
+      <ButtonExit goHome={() => navigate.navigate(StackScreens.HOME, {})}/>
     </View>
   );
 };

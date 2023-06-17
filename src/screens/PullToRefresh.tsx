@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import HeaderTitle from '../components/HeaderTitle';
-import { Pressable, Text, View, ScrollView, RefreshControl } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {  Text, View, ScrollView, RefreshControl } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { styles } from '../theme/apptheme';
 import {  } from 'react-native-gesture-handler';
+import ButtonExit from '../components/ButtonExit';
+import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
 
 const PullToRefresh = () => {
-  const navigate = useNavigation();
+  const navigate = useNavigation<NavigationProp<RootStackParams>>();
   const [refreshing, setRefreshing] = useState(false);
   const [data, setData] = useState<string>();
   const onRefresh = () => {
@@ -18,6 +20,7 @@ const PullToRefresh = () => {
     }, 4000);
   };
   return (
+    <View style={{flex:1 }}>
     <ScrollView
       refreshControl={
         <RefreshControl
@@ -32,15 +35,14 @@ const PullToRefresh = () => {
         />
       }
     >
-    <View style={ styles.globalMargin}>
+      <View style={styles.globalMargin}>
         <HeaderTitle title="PullToRefresh" />
         {data && <Text style={styles.title}>{data}</Text>}
 
-      <Pressable onPress={()=> navigate.navigate('Home' as never)}>
-        <Text>I'm pressable!</Text>
-      </Pressable>
     </View>
-    </ScrollView>
+      </ScrollView>
+        <ButtonExit goHome={() => navigate.navigate(StackScreens.HOME, {})}/>
+      </View>
   );
 };
 

@@ -1,19 +1,23 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Animated, Button,  Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Button, StyleSheet, Text, View } from 'react-native';
 import useAnimation from '../hooks/useAnimation';
 import HeaderTitle from '../components/HeaderTitle';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
+import ButtonExit from '../components/ButtonExit';
 
-const Animation101 = () => {
-  const navigate = useNavigation();
+interface Props extends StackScreenProps<RootStackParams, StackScreens.ANIMATION_101> { }
 
-  const {fadeIn, fadeOut, position, opacity, startPosition } = useAnimation();
+const Animation101 = ({ navigation, route } : Props) => {
+
+  const { fadeIn, fadeOut, position, opacity, startPosition } = useAnimation(undefined, 1000);
+  const nombre = route.params?.nombre;
 
   return (
     <View style={styles.container}>
       <HeaderTitle title= "Animation 101"/>
       <Text>
-        Animation 101
+        Animation 101 { nombre?.toUpperCase() }
       </Text>
       <Animated.View style={{
         ...styles.box,
@@ -27,11 +31,9 @@ const Animation101 = () => {
           fadeIn();
           startPosition();
         }} />
-        <Button title="Fade Out" onPress={fadeOut} />
+        <Button title="Fade Out" onPress={()=> fadeOut()} />
       </View>
-      <Pressable onPress={()=> navigate.navigate('Home' as never)}>
-        <Text>I'm pressable!</Text>
-      </Pressable>
+      <ButtonExit goHome={() => navigation.navigate(StackScreens.HOME, {})  } />
     </View>
   );
 };

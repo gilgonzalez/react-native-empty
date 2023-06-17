@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Animated, Easing } from 'react-native';
 
-const useAnimation = (duration: number = 300) => {
+const useAnimation = (duration: number = 300, fadeOutDuration = 0) => {
 
 
   const opacity = useRef(new Animated.Value(0)).current;
@@ -20,7 +20,7 @@ const useAnimation = (duration: number = 300) => {
     Animated.timing(
       opacity, {
       toValue: 0,
-      duration,
+      duration: fadeOutDuration,
       useNativeDriver: true,
     }
     ).start(() => position.setValue(-100));

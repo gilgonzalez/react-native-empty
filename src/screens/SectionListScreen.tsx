@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import HeaderTitle from '../components/HeaderTitle';
-import { Pressable, SectionList, Text, View } from 'react-native';
+import {  SectionList, Text, View } from 'react-native';
 import { styles } from '../theme/apptheme';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { casas } from '../data/Casas';
 import ListItemSeparator from '../components/ListItemSeparator';
+import ButtonExit from '../components/ButtonExit';
+import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
+import { ThemeContext } from '../context/Theme/ThemeContext';
 
 const SectionListScreen = () => {
-  const navigate = useNavigation();
+  const navigate = useNavigation<NavigationProp<RootStackParams>>();
+  const { theme: { colors, aditionalColors } } = useContext(ThemeContext);
 
   return (
     <View style={styles.globalMargin}>
@@ -16,27 +20,23 @@ const SectionListScreen = () => {
         stickySectionHeadersEnabled
         sections={casas}
         ListHeaderComponent={() => <HeaderTitle title="SectionListScreen" />}
-        ListFooterComponent={() => (
-          <View style={{height:100, justifyContent:'center', alignItems:'center'}}>
-            <Text style={{color:'red', fontSize:20}}>Section List Footer</Text>
-          </View>
-        )}
+        ListFooterComponent={() => (<ButtonExit goHome={() => navigate.navigate(StackScreens.HOME, {})} />)}
         renderSectionFooter={({ section }) => <HeaderTitle title={'Miembros de ' + section.casa + ': ' + section.data.length} />}
-        renderItem={({ item }) => <Text>{item}</Text>}
+        renderItem={({ item }) => <Text style={[styles.text, {color: aditionalColors.subtitle} ]}>{item}</Text>}
         keyExtractor={(item, index) => item + index}
         showsVerticalScrollIndicator={false}
         SectionSeparatorComponent={() => <ListItemSeparator borderWidth={3}/>}
         ItemSeparatorComponent={() => <ListItemSeparator borderWidth={1} />}
         renderSectionHeader={({ section }) => (
-          <View style={{ backgroundColor: 'white' }}>
+          <View
+            style={{
+              backgroundColor: colors.background,
+            }}
+          >
             <HeaderTitle title={section.casa} />
           </View>
         )}
       />
-      <Pressable onPress={() => navigate.navigate('Home' as never)}>
-        <Text>Going Back Bro!</Text>
-      </Pressable>
-
     </View>
   );
 };

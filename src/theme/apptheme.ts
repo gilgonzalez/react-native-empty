@@ -13,7 +13,19 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  objectText: {
-    fontSize: 20,
+  text: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  code: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginVertical: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 100,
+    borderRadius: 20,
+    elevation: 10,
+
   },
 });

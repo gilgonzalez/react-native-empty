@@ -47,4 +47,14 @@ export
       icon: 'infinite-outline',
       component: 'InfinityScroll',
     },
+    {
+      name: 'Slides',
+      icon: 'flower-outline',
+      component: 'Slides',
+    },
+    {
+      name: 'Theme',
+      icon: 'flask-outline',
+      component: 'Theme',
+    },
   ];

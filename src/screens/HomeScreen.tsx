@@ -17,7 +17,7 @@ const HomeScreen = () => {
         data={menuItems}
         renderItem={({ item }) => <FlatListItem menuItem={ item } />}
         keyExtractor={(item) => item.name}
-        ItemSeparatorComponent={()=> <ListItemSeparator/>}
+        ItemSeparatorComponent={()=> <ListItemSeparator borderWidth={1}/>}
       />
     </View>
     );

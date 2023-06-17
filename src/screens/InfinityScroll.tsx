@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import HeaderTitle from '../components/HeaderTitle';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { ActivityIndicator, FlatList,  Text, View } from 'react-native';
-import { Button } from 'react-native';
 import { styles as globalStyles } from '../theme/apptheme';
 import FadeInImage from '../components/FadeInImage';
+import ButtonExit from '../components/ButtonExit';
+import { RootStackParams, StackScreens } from '../navigation/StackNavigation';
 
 const InfinityScroll = () => {
-  const navigate = useNavigation();
+  const navigate = useNavigation<NavigationProp<RootStackParams>>();
 
   const [numbers, setNumbers] = useState<number[]>([0,1, 2, 3, 4, 5]);
   //https://picsum.photos/id/237/200/300
@@ -40,7 +41,6 @@ const InfinityScroll = () => {
   };
   return (
     <View>
-      <Button title="Ir Atras" onPress={() => navigate.goBack()} />
       <FlatList
         data={numbers}
         keyExtractor={(item) => item + ''}
@@ -51,6 +51,7 @@ const InfinityScroll = () => {
         ListHeaderComponent={() => (
           <View style={globalStyles.globalMargin}>
             <HeaderTitle title="Infinito Scroll" />
+            <ButtonExit goHome={() => navigate.navigate(StackScreens.HOME, {} )}/>
           </View>
           )}
         ListFooterComponent={() => (
