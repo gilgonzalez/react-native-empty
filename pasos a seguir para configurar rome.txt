@@ -1,0 +1,10 @@
+1. pnpm install --save-dev -E rome
+2. npm rome init
+ [tras este paso, se creará el fichero rome.json] 
+	agregar 
+"formatter":{
+  "enabled": true
+}
+
+3. Desactivar eslint en este workspace
+4. Agregar el archivo settings.json en .vscode
